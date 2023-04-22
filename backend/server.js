@@ -4,7 +4,7 @@ const mysql=require("mysql");
 const app=express();
 app.use(cors());
 app.use(express.json());
-const c=0;
+var c=0;
 
 // const db=mysql.createConnection({
 //     host : "localhost",
