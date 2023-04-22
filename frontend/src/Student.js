@@ -10,7 +10,7 @@ function Student() {
         axios.get(`${API}`)
         .then(res => {setStudent(res.data); console.log(res.data)})
         .catch(err => console.log(err));
-    })
+    },[])
 
         const handleDelete = async(id)=>{
             try{
@@ -37,10 +37,10 @@ function Student() {
                         {
                             student && student?.map((data,i)=>(
                                 <tr key={i}>
-                                    <td>{data.Name}</td>
-                                    <td>{data.Email}</td>
+                                    <td>{data.name}</td>
+                                    <td>{data.email}</td>
                                     <td>
-                                        <Link to={`update/${data.Id}`}className='btn btn-primary'>Update</Link>
+                                        <Link to={`update/${data.id}`}className='btn btn-primary'>Update</Link>
                                         <button className='btn btn-danger ms-2' onClick={e => handleDelete(data.Id)}>Delete</button>
                                     </td>
 
