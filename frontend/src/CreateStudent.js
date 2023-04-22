@@ -2,7 +2,10 @@ import React,{useState} from 'react';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 
-const API = "http://ec2-18-234-190-81.compute-1.amazonaws.com/api/v1";
+const API = "http://ec2-3-83-92-18.compute-1.amazonaws.com/api/v1";
+// http://ec2-3-83-92-18.compute-1.amazonaws.com/create
+// const API = "http://localhost:8081/api/v1";
+
 
 function CreateStudent() {
     const [name,setName]=useState('')

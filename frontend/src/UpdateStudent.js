@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import axios from 'axios';
 import {useNavigate,useParams} from 'react-router-dom';
 
-const API = "http://ec2-18-234-190-81.compute-1.amazonaws.com/api/v1"
+const API = "http://ec2-3-83-92-18.compute-1.amazonaws.com/api/v1";
 
 function UpdateStudent() {
     const [name,setName]=useState('')

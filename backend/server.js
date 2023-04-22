@@ -14,22 +14,35 @@ app.use(express.json());
 // })
 
 const db=mysql.createConnection({
-    host : "cc-project.ccrzlfiun0jm.us-east-1.rds.amazonaws.com:3306",
+    host : "cc-project.ccrzlfiun0jm.us-east-1.rds.amazonaws.com",
     user: "admin",
+    port: '3306',
     password: "password",
-    database:"mysql"
-
+    database: "student"
 })
 
+db.connect((err) => {
+    if(err) console.log(err)
+    console.log("Db connected")
+    // const cmd="Create database student"
+
+    // db.query(cmd,(err,data) => {
+    //     if(err) console.log("err is ",err);
+
+    //     console.log("data is",data)
+    // })
+})
 app.post('/api/v1/create',(req,res)=> {
 
-    const cmd="Create table if not exists student (id int primary key, name varchar(255), email varchar(255));"
+    // const cmd="Create table if not exists student (id int primary key, name varchar(255), email varchar(255));"
 
-    db.query(cmd,(err,data) => {
-        if(err) console.log(err);
+    // db.query(cmd,(err,data) => {
+    //     if(err) console.log("err is ",err);
 
-        console.log(data)
-    })
+    //     console.log("data is",data)
+    // })
+
+    // console.log("table created successfullyy ")
 
     const sql="INSERT INTO student (Name,Email) VALUES (?);";
     const values=[
@@ -38,7 +51,7 @@ app.post('/api/v1/create',(req,res)=> {
     ]
     db.query(sql,[values],(err,data) => {
         if(err) return res.json(err);
-            
+        console.log(data)
         return res.json(data);
 
     })
@@ -99,7 +112,7 @@ app.get("/api/v1",(req,res) => {
 
     const sql="SELECT * FROM student";
     db.query(sql,(err,data) => {
-        if(err) return res.json("Nope");
+        if(err) return res.json(err);
         return res.json(data);
     });
 });
