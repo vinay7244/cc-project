@@ -45,7 +45,7 @@ app.post('/api/v1/create',(req,res)=> {
 
     // console.log("table created successfullyy ")
 
-    const sql="INSERT INTO student (name,email) VALUES (?);";
+    const sql="INSERT INTO student (id,name,email) VALUES (?);";
     const values=[
         c,
         req.body.name,
