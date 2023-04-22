@@ -4,6 +4,7 @@ const mysql=require("mysql");
 const app=express();
 app.use(cors());
 app.use(express.json());
+const c=0;
 
 // const db=mysql.createConnection({
 //     host : "localhost",
@@ -44,11 +45,13 @@ app.post('/api/v1/create',(req,res)=> {
 
     // console.log("table created successfullyy ")
 
-    const sql="INSERT INTO student (Name,Email) VALUES (?);";
+    const sql="INSERT INTO student (name,email) VALUES (?);";
     const values=[
+        c,
         req.body.name,
         req.body.email
     ]
+    c=c+1;
     db.query(sql,[values],(err,data) => {
         if(err) return res.json(err);
         console.log(data)
