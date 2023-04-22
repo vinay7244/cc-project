@@ -5,13 +5,22 @@ const app=express();
 app.use(cors());
 app.use(express.json());
 
+// const db=mysql.createConnection({
+//     host : "localhost",
+//     user: "root",
+//     password: "",
+//     database:"mysql"
+
+// })
+
 const db=mysql.createConnection({
-    host : "localhost",
-    user: "root",
-    password: "",
+    host : "cc-project.ccrzlfiun0jm.us-east-1.rds.amazonaws.com",
+    user: "admin",
+    password: "password",
     database:"mysql"
 
 })
+
 app.post('/api/v1/create',(req,res)=> {
     const sql="INSERT INTO student (Name,Email) VALUES (?);";
     const values=[
