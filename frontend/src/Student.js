@@ -35,7 +35,7 @@ function Student() {
                     </thead>
                     <tbody>
                         {
-                            student.map((data,i)=>(
+                            student && student?.map((data,i)=>(
                                 <tr key={i}>
                                     <td>{data.Name}</td>
                                     <td>{data.Email}</td>
