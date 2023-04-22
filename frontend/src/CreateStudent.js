@@ -2,13 +2,15 @@ import React,{useState} from 'react';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 
+const API = "http://ec2-18-234-190-81.compute-1.amazonaws.com/api/v1";
+
 function CreateStudent() {
     const [name,setName]=useState('')
     const[email,setEmail]=useState('')
     const navigate =useNavigate();
     function handleSubmit(event){
         event.preventDefault();
-        axios.post('http://localhost:8081/create',{name,email})
+        axios.post(`${API}/create`,{name,email})
         .then(res=>{
             navigate('/');
             console.log(res);

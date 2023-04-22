@@ -12,7 +12,7 @@ const db=mysql.createConnection({
     database:"mysql"
 
 })
-app.post('/create',(req,res)=> {
+app.post('/api/v1/create',(req,res)=> {
     const sql="INSERT INTO student (Name,Email) VALUES (?);";
     const values=[
         req.body.name,
@@ -26,7 +26,7 @@ app.post('/create',(req,res)=> {
     })
 })
 
-app.put('/update/:id',(req,res)=> {
+app.put('/api/v1/update/:id',(req,res)=> {
     const sql="update student set Name=?,Email=? where Id=?;";
     const values=[
         req.body.name,
@@ -41,7 +41,7 @@ app.put('/update/:id',(req,res)=> {
     })
 })
 
-app.delete('/student/:id',(req,res)=> {
+app.delete('/api/v1/student/:id',(req,res)=> {
     const sql="Delete from student where Id=?;";
     const id=parseInt(req.params.id);
     db.query(sql,[id],(err,data) => {
@@ -52,7 +52,7 @@ app.delete('/student/:id',(req,res)=> {
     })
 })
 
-app.get("/",(req,res) => {
+app.get("/api/v1",(req,res) => {
     const sql="SELECT * FROM student";
     db.query(sql,(err,data) => {
         if(err) return res.json("Nope");

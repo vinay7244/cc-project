@@ -1,17 +1,20 @@
 import React,{useEffect,useState} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+
+const API = "http://ec2-18-234-190-81.compute-1.amazonaws.com/api/v1"
+
 function Student() {
     const [student,setStudent]=useState([])
     useEffect(()=>{
-        axios.get('http://localhost:8081/')
+        axios.get(`${API}`)
         .then(res => setStudent(res.data))
         .catch(err => console.log(err));
     })
 
         const handleDelete = async(id)=>{
             try{
-                await axios.delete(`http://localhost:8081/student/${id}`);
+                await axios.delete(`${API}/student/${id}`);
                 window.location.reload();
             }catch(err){
                 console.log(err);

@@ -2,6 +2,8 @@ import React,{useState} from 'react';
 import axios from 'axios';
 import {useNavigate,useParams} from 'react-router-dom';
 
+const API = "http://ec2-18-234-190-81.compute-1.amazonaws.com/api/v1"
+
 function UpdateStudent() {
     const [name,setName]=useState('')
     const[email,setEmail]=useState('')
@@ -9,7 +11,7 @@ function UpdateStudent() {
     const {id}=useParams();
     function handleSubmit(event){
         event.preventDefault();
-        axios.put('http://localhost:8081/update/'+id,{name,email})
+        axios.put(`${API}/update/`+id,{name,email})
         .then(res=>{
             navigate('/');
             console.log(res);
