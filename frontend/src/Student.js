@@ -41,7 +41,7 @@ function Student() {
                                     <td>{data.email}</td>
                                     <td>
                                         <Link to={`update/${data.id}`}className='btn btn-primary'>Update</Link>
-                                        <button className='btn btn-danger ms-2' onClick={e => handleDelete(data.Id)}>Delete</button>
+                                        <button className='btn btn-danger ms-2' onClick={e => handleDelete(data.id)}>Delete</button>
                                     </td>
 
                                     
