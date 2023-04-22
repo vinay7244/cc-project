@@ -36,5 +36,5 @@ jobs:
           cd ~/actions-runner/_work/cc-project/cc-project/backend 
           npm i
           npm install pm2 -g
-          pm2 restart backend
+          pm2 restart bacend
       
