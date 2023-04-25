@@ -24,7 +24,7 @@ function Student() {
     return (
         <div className='d-flex vh-100 bg-primary justify-content-center align-items-center'>
             <div className='w-50 bg-white rounded p-3'>
-            <h2>DwE</h2>
+            <h2>Hello</h2>
                 <Link to="/create" className='btn btn-success'>ADD +</Link>
                 <table className='table'>
                     <thead>
